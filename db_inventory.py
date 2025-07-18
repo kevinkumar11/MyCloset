@@ -11,7 +11,7 @@ class InventoryDB:
 
         self.conn = sqlite3.connect(db_path)
         print(f"Connecting to DB at: {db_path}")
-        #self.create_table()
+        self.create_table()
 
     def create_table(self):
         query = '''
@@ -21,6 +21,7 @@ class InventoryDB:
             "type"	TEXT NOT NULL,
             "brand"	TEXT NOT NULL,
             "purchase_date"	TEXT NOT NULL,
+            "sold_date"	TEXT NOT NULL,
             "price"	REAL NOT NULL,
             "size"	TEXT,
             "name"	TEXT,
@@ -31,11 +32,11 @@ class InventoryDB:
         self.conn.execute(query)
         self.conn.commit()
 
-    def add_item(self, name, description, brand, category_type, price, purchase_date, size, picture):
+    def add_item(self, name, description, brand, category_type, price, purchase_date, sold_date, size, picture):
         #query = 'INSERT INTO inventory (name, quantity, price) VALUES (?, ?, ?)'
-        query = 'INSERT INTO inventory (name, description, brand, type, price, purchase_date, size, picture) VALUES (?, ?, ?, ?, ?, ?, ?, ?)'
+        query = 'INSERT INTO inventory (name, description, brand, type, price, purchase_date, sold_date size, picture) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)'
 
-        self.conn.execute(query, (name, description, brand, category_type, price, purchase_date, size, picture))
+        self.conn.execute(query, (name, description, brand, category_type, price, purchase_date, sold_date, size, picture))
         self.conn.commit()
 
     def fetch_items(self):
