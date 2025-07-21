@@ -34,7 +34,7 @@ class InventoryDB:
 
     def add_item(self, name, description, brand, category_type, price, purchase_date, sold_date, size, picture):
         #query = 'INSERT INTO inventory (name, quantity, price) VALUES (?, ?, ?)'
-        query = 'INSERT INTO inventory (name, description, brand, type, price, purchase_date, sold_date size, picture) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)'
+        query = 'INSERT INTO inventory (name, description, brand, type, price, purchase_date, sold_date, size, picture) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)'
 
         self.conn.execute(query, (name, description, brand, category_type, price, purchase_date, sold_date, size, picture))
         self.conn.commit()

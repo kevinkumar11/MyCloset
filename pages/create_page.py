@@ -8,6 +8,9 @@ class CreatePage:
         self.invenotory_db = InventoryDB(db_name=db_name)
 
     def display(self):
+        st.page_link("sales_app.py", label="Home", icon="🏠")
+
+        st.title("Enter New Item Details")
         name = st.text_input("Name:")
         desc = st.text_input("Description:")
         brand = st.text_input("Brand:")
@@ -24,9 +27,9 @@ class CreatePage:
             st.success("Data saved to database!")
 
 # Create an instance of the createPage class and call the display method
-# if __name__ == "__main__":
-    # page = createPage()
-    # page.display() 
+if __name__ == "__main__":
+    page = CreatePage("clothing_inventory_new.db")
+    page.display() 
 # This code is part of a Streamlit application that allows users to create and manage sales data.   
 # The createPage class encapsulates the functionality for displaying the sales form and handling database interactions.
 #conn.close()
