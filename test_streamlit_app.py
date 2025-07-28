@@ -19,10 +19,26 @@ WebDriverWait(driver, 10).until(
     EC.presence_of_element_located((By.TAG_NAME, "button"))
 )
 
-print("Button found. Clicking it.")
-driver.find_element(By.TAG_NAME, "button").click()
+print("Find Create new item link and click.")
+create_pg_link = driver.find_element(By.XPATH, "//*[contains(text(),'Create New Item')]")
+create_pg_link.click()
 
-time.sleep(1)
+time.sleep(2)
+print("Find Home link and click.")
+home_pg_link = driver.find_element(By.XPATH, "//*[contains(text(),'Home')]")
+home_pg_link.click()
+
+time.sleep(2)
+
+print("Find display inventory link and click.")
+display_pg_link = driver.find_element(By.XPATH, "//*[contains(text(),'View Full Inventory')]")
+display_pg_link.click()
+
+time.sleep(2)
+print("Find Home link and click.")
+home_pg_link = driver.find_element(By.XPATH, "//*[contains(text(),'Home')]")
+home_pg_link.click()
+
 print("Test completed.")
 
 driver.quit()
