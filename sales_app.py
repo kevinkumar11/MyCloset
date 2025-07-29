@@ -67,4 +67,4 @@ with row2[2]:
 # If you want 6 buttons, add this row:
 row3 = st.columns(3)
 with row3[0]:
-    st.page_link("pages/coming_soon_page.py", label="Bulk Actions", icon="🔁")
+    st.page_link("pages/coming_soon_page.py", label="Bulk moves", icon="🔁")
