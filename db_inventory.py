@@ -65,6 +65,53 @@ class InventoryDB:
         query = 'DELETE FROM inventory WHERE id = ?'
         self.conn.execute(query, (item_id,))
         self.conn.commit()
+    
+    def get_tree_data(self):
+        """
+        Get hierarchical tree data organized by TYPE, BRAND, and SIZE
+        """
+        # Query only the columns that actually exist in your database
+        query = '''
+        SELECT id, description, type, brand, purchase_date, price, size, name, picture
+        FROM inventory 
+        ORDER BY type, brand, name
+        '''
+        cursor = self.conn.execute(query)
+        items = cursor.fetchall()
+        
+        # Convert to list of dicts - matching your ACTUAL columns
+        columns = ['id', 'description', 'type', 'brand', 'purchase_date', 'price', 'size', 'name', 'picture']
+        items_list = [dict(zip(columns, item)) for item in items]
+        
+        # Organize by categories
+        tree_data = {
+            'types': {},
+            'brands': {},
+            'sizes': {}
+        }
+        
+        # Group by type
+        for item in items_list:
+            item_type = item['type']
+            if item_type not in tree_data['types']:
+                tree_data['types'][item_type] = []
+            tree_data['types'][item_type].append(item)
+        
+        # Group by brand
+        for item in items_list:
+            brand = item['brand']
+            if brand not in tree_data['brands']:
+                tree_data['brands'][brand] = []
+            tree_data['brands'][brand].append(item)
+        
+        # Group by size
+        for item in items_list:
+            size = item['size']
+            if size not in tree_data['sizes']:
+                tree_data['sizes'][size] = []
+            tree_data['sizes'][size].append(item)
+        
+        return tree_data
 
     def __del__(self):
         self.conn.close()

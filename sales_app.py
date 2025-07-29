@@ -43,59 +43,28 @@ row2 = st.columns(3)
 # ➕ Button 1 - Create New Item
 with row1[0]:
     st.page_link("pages/create_page.py", label="Create New Item", icon="➕")
-    #if st.button("Create New Item", key="create" , icon="➕"):
-    #    CreatePage("clothing_inventory_new.db").display()
-    #st.markdown(
-    #    '<div class="tile-wrapper" onclick="alert("hello");><div class="button-tile"><span class="button-icon"  >➕</span>Create New Item</div></div>',
-    #    unsafe_allow_html=True
-    #)
 
-# 🧾 Button 2 - View Inventory
+# 🌳 Button 2 - Tree Navigation (NEW!)
 with row1[1]:
-    st.page_link("pages/display_inventory_page.py", label="View Full Inventory", icon="🧾")
-    #if st.button("View Full Inventory", key="view", icon="🧾"):
-    #    DisplayInventoryPage("clothing_inventory_new.db").display()
-    #st.markdown(
-    #    '<div class="tile-wrapper"><div class="button-tile"><span class="button-icon">🧾</span>View Inventory</div></div>',
-    #    unsafe_allow_html=True,
-    #)
+    st.page_link("pages/tree_navigation_page.py", label="Browse Inventory", icon="🌳")
 
-# 📊 Button 3 - Stats
+# 🧾 Button 3 - View Full Inventory (moved to row1[2])
 with row1[2]:
-    st.page_link("pages/coming_soon_page.py", label="Stats", icon="📊")
-    #if st.button("Stats", key="stats", icon="📊"):
-    #    st.write("Stats page coming soon.")
-    #st.markdown(
-    #    '<div class="tile-wrapper"><div class="button-tile"><span class="button-icon">📊</span>Stats</div></div>',
-    #    unsafe_allow_html=True,
-    #)
+    st.page_link("pages/display_inventory_page.py", label="View Full Inventory", icon="🧾")
 
-# ⚙️ Button 4 - Settings
+# 📊 Button 4 - Stats
 with row2[0]:
-    st.page_link("pages/coming_soon_page.py", label="Settings", icon="⚙️")
-    #if st.button("Settings", key="settings", icon="⚙️"):
-    #    st.write("Settings page coming soon.")
-    #st.markdown(
-    #    '<div class="tile-wrapper"><div class="button-tile"><span class="button-icon">⚙️</span>Settings</div></div>',
-    #    unsafe_allow_html=True,
-    #)
+    st.page_link("pages/coming_soon_page.py", label="Stats", icon="📊")
 
-# 📤 Button 5 - Cross-Post
+# ⚙️ Button 5 - Settings
 with row2[1]:
-    st.page_link("pages/coming_soon_page.py", label="Cross-Post", icon="📤")
-    #if st.button("Cross-Post", key="cross", icon="📤"):
-    #    st.write("Cross-posting functionality coming soon.")
-    #st.markdown(
-    #    '<div class="tile-wrapper"><div class="button-tile"><span class="button-icon">📤</span>Cross-Post</div></div>',
-    #    unsafe_allow_html=True,
-    #)
+    st.page_link("pages/coming_soon_page.py", label="Settings", icon="⚙️")
 
-# 🔁 Button 6 - Bulk Actions
+# 📤 Button 6 - Cross-Post
 with row2[2]:
+    st.page_link("pages/coming_soon_page.py", label="Cross-Post", icon="📤")
+
+# If you want 6 buttons, add this row:
+row3 = st.columns(3)
+with row3[0]:
     st.page_link("pages/coming_soon_page.py", label="Bulk Actions", icon="🔁")
-    #if st.button("Bulk Actions", key="bulk", icon="🔁"):
-    #    st.write("Bulk actions functionality coming soon.")
-    #st.markdown(
-    #    '<div class="tile-wrapper"><div class="button-tile"><span class="button-icon">🔁</span>Bulk Actions</div></div>',
-    #    unsafe_allow_html=True,
-    #)
