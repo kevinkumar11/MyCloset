@@ -1,4 +1,7 @@
 import streamlit as st
+from db_inventory import InventoryDB
+
+db = InventoryDB()
 
 st.set_page_config(page_title="Sales App", layout="wide")
 
@@ -54,7 +57,7 @@ with row1[2]:
 
 # 📊 Button 4 - Stats
 with row2[0]:
-    st.page_link("pages/coming_soon_page.py", label="Stats", icon="📊")
+    st.page_link("pages/stats_page.py", label="Stats", icon="📊")
 
 # ⚙️ Button 5 - Settings
 with row2[1]:
