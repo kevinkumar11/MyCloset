@@ -14,20 +14,22 @@ class DisplayInventoryPage:
         if not rows:
             st.info("No data found in the database.")
             return
+        #id, name, description, brand, type, purchase_price, sold_price, purchase_date, sold_date, size, picture
 
         for row in rows:
             name = row[1]
             description = row[2]
             brand = row[3]
             category_type = row[4]
-            sold_price = row[5]
+            purchase_price = row[5]
+            sold_price = row[6]
             purchase_date = row[6]
-            sold_date = row[7]
-            size = row[8]
-            picture = row[9]
+            sold_date = row[8]
+            size = row[9]
+            picture = row[10]
 
             with st.container():
-                st.markdown(f"### {name}")
+                #st.markdown(f"### {name}")
                 st.markdown(f"**Description:** {description}")
                 st.markdown(f"**Brand:** {brand}")
                 st.markdown(f"**Category Type:** {category_type}")
@@ -36,10 +38,10 @@ class DisplayInventoryPage:
                 st.markdown(f"**Sold Date:** {sold_date if sold_date else '—'}")
                 st.markdown(f"**Sold Price:** ${sold_price:.2f}" if sold_price else "**Sold Price:** —")
                 if picture:
-                    st.image(picture, caption=name, use_column_width=True)
+                    st.image(picture, caption=name, use_column_width=False)
                 st.markdown("---")
 
 # Run this page directly
 if __name__ == "__main__":
-    page = DisplayInventoryPage("clothing_inventory_new.db")
+    page = DisplayInventoryPage("clothing_inventory.db")
     page.display()
