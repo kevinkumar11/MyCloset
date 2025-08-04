@@ -21,17 +21,51 @@ Automated Selenium testing for UI and functionality
 TECH STACK:
 
 Languages & Libraries:
-Python
-Pandas
-Streamlit
-SQLite
+Python,
+Pandas,
+Streamlit,
+SQLite,
 Selenium
 
 Analytics Tools:
 Plotly
 
 Development & Project Management:
-JIRA (requirements tracking, user stories)
-Git & GitHub
+JIRA (requirements tracking, user stories),
+Git & GitHub,
 VS Code
+
+PROJECT STRUCTURE:
+clothing-inventory-dashboard/
+│
+├── db/                         # SQLite database files
+├── db_inventory.py             # Database connection & queries
+├── create_page.py               # Page to add inventory items
+├── display_inventory_page.py    # Page to view and filter inventory
+├── stats_page.py                # Analytics & stats page
+├── test_streamlit_app.py        # Selenium test scripts
+├── sales_app.py                 # Main Streamlit entry point
+└── README.md                    # Project documentation
+
+GETTING STARTED/HOW TO USE:
+
+Prerequisites:
+Python 3.10+
+pip
+
+Installation:
+git clone https://github.com/kevinkumar11/sales-app.git
+cd sales-app
+pip install -r requirements.txt
+
+Run the app:
+streamlit run sales_app.py
+
+IN DEVELOPMENT CURRENTLY:
+Cross-posting feature among other selling apps (i.g. Grailed, Mercari, Poshmark)
+Bulk Actions, allowing you to execute a similar command to multiple listings at once
+
+
+
+
 
